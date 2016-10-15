@@ -16,5 +16,17 @@
   "bugs": {
     "url": "https://github.com/sergsal/patient-to-doctor/issues"
   },
-  "homepage": "https://github.com/sergsal/patient-to-doctor#readme"
+  "homepage": "https://github.com/sergsal/patient-to-doctor#readme",
+  "devDependencies": {
+    "jasmine": "^2.5.2",
+    "sequelize-cli": "^2.4.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.6",
+    "mysql": "^2.11.1",
+    "sequelize": "^3.24.3"
+  }
 }
