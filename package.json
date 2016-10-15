@@ -1,0 +1,20 @@
+{
+  "name": "patient-to-doctor",
+  "version": "1.0.0",
+  "description": "An app to help a network of phsyicians volunteer to offer consultations/visits for unisured/low-income patients for free in their office.",
+  "main": "server.js",
+  "scripts": {
+    "test": "jasmine",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergsal/patient-to-doctor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergsal/patient-to-doctor/issues"
+  },
+  "homepage": "https://github.com/sergsal/patient-to-doctor#readme"
+}
