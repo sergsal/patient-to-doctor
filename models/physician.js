@@ -40,7 +40,13 @@ module.exports = function (sequelize, DataTypes) {
  }, {
   classMethods: {
    associate: function (models) {
-    // associations can be defined here
+    Physician.hasMany(models.Availability, {
+     hooks: true,
+     onDelete: "CASCADE",
+     foreignKey: {
+      allowNull: true
+     }
+    })
    }
   }
  });
