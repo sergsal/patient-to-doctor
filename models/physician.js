@@ -36,6 +36,10 @@ module.exports = function (sequelize, DataTypes) {
   specialty: {
    type: DataTypes.STRING,
    allowNull: false,
+  },
+  url_path: {
+   type: DataTypes.STRING,
+   allowNull: false,
   }
  }, {
   classMethods: {

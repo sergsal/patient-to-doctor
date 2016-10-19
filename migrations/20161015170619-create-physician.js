@@ -57,16 +57,28 @@ module.exports = {
    }
   })
   .then(function(){
-   Physicians.bulkCreate([{
-    first_name: "Doogie",
-    last_name: "Howser",
-    address1: "742 Evergreen Terrace",
-    city: "Springfield",
-    state: "MO",
-    zip: "12345",
-    phone_number: "1234567890",
-    specialty: "Cardiology",
-   }])
+   Physicians.bulkCreate([
+     {
+      first_name: "Doogie",
+      last_name: "Howser",
+      address1: "742 Evergreen Terrace",
+      city: "Springfield",
+      state: "MO",
+      zip: "12345",
+      phone_number: "1234567890",
+      specialty: "Cardiology",
+     },
+     {
+      first_name: "John",
+      last_name: "Dorian",
+      address1: "Sacred Heart",
+      city: "San DiFrangeles",
+      state: "CA",
+      zip: "23456",
+      phone_number: "987654321",
+      specialty: "General",
+     }
+   ])
   });
  },
  down: function (queryInterface, Sequelize) {
