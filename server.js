@@ -29,8 +29,18 @@ var sequelizeConnection = models.sequelize;
 sequelizeConnection.sync(); // {force:true} drops the table everytime the server starts.
 
 // Routing Setup
-var routes = require('./controllers/physicians_controller.js');
-app.use('/', routes);
+var public_routes = require('./controllers/public.js');
+var physicians_routes = require('./controllers/physicians.js');
+var search_routes = require('./controllers/search.js');
+
+// TODO: routes for authenticating physician users
+
+// TODO: routes for authenticated physician users (Create, Update, Delete)
+//var physician_user_routers = require('./controllers/physicians_controller.js');
+
+app.use('/', public_routes);
+app.use('/physicians', physicians_routes);
+app.use('/search', search_routes);
 
 // Listening
 app.listen(app.get('port'), function () {
