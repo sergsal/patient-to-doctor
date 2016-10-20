@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var tokenAuth = require('./auth.js');
 var Physician = require('../models/')["Physician"];
 var Availability = require('../models/')["Availability"];
 
@@ -17,7 +18,7 @@ router.get('/dr/:urlpath/', function(req, res) {
 });
 
 //add new physician profile
-router.post('/create', auth, function() {
+router.post('/create', tokenAuth, function(req, res, next) {
   // first_name: 
   // last_name: 
   // address1: 
@@ -31,7 +32,7 @@ router.post('/create', auth, function() {
 });
 
 //
-router.put('/update', auth, function() {
+router.put('/update', tokenAuth, function(req, res, next) {
   // first_name: 
   // last_name: 
   // address1: 
