@@ -5,7 +5,8 @@ module.exports = function (sequelize, DataTypes) {
   end: DataTypes.DATE,
   reserved: {
    type: DataTypes.BOOLEAN,
-   default: false
+   defaultValue: false,
+   allowNull: false
   }
 
  }, {
