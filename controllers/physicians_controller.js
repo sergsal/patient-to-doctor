@@ -13,8 +13,18 @@ router.get('/', function(req, res) {
 });
 
 //physician profile page
-router.get('/dr/:urlpath/', function(req, res) {
+router.get('/:urlpath', function(req, res) {
   //return availabilities
+  
+  Physician.findOne({
+    where: {url_path : req.params.urlpath}
+  })
+  .then(function(physician){
+    return physician.getAvailabilities()
+      .then(function(availabilities){
+        return res.json({"availabilities" : availabilities});
+      })
+  });
 });
 
 //add new physician profile
