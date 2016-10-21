@@ -13,8 +13,23 @@ router.get('/', function(req, res) {
 });
 
 //physician profile page
-router.get('/dr/:urlpath/', function(req, res) {
-  //return availabilities
+router.get('/:urlpath', function(req, res) {
+  
+  Physician.findOne({
+    where: {url_path : req.params.urlpath}
+  })
+  .then(function(physician){
+     
+    //return availabilities
+    //return physician address
+    //return physician contact info
+    //return physician specialty
+
+    return physician.getAvailabilities()
+      .then(function(availabilities){
+        return res.json({"availabilities" : availabilities});
+      });
+  });
 });
 
 //add new physician profile

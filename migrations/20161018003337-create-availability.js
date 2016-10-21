@@ -16,8 +16,8 @@ module.exports = {
    },
    reserved: {
     type: Sequelize.BOOLEAN,
-    allowNull: true,
-    default: false
+    allowNull: false,
+    defaultValue: false
    },
    createdAt: {
     allowNull: false,
@@ -26,6 +26,10 @@ module.exports = {
    updatedAt: {
     allowNull: false,
     type: Sequelize.DATE
+   },
+   PhysicianId: {
+    allowNull: false,
+    type: Sequelize.INTEGER
    }
   });
  },
