@@ -5,59 +5,68 @@ var Physician = require('../models/')["Physician"];
 var Availability = require('../models/')["Availability"];
 
 //list of physicians
-router.get('/', function(req, res) {
-  Physician.findAll({})
-  .then(function(physicians) {
-    return res.render("physicians", {"physicians" : physicians});
+router.get('/', function (req, res) {
+ Physician.findAll({})
+  .then(function (physicians) {
+   return res.render("physicians", {
+    "title": "View All Physicians",
+    "physicians": physicians
+   });
   });
 });
 
 //physician profile page
-router.get('/:urlpath', function(req, res) {
-  
-  Physician.findOne({
-    where: {url_path : req.params.urlpath}
-  })
-  .then(function(physician){
-     
-    //return availabilities
-    //return physician address
-    //return physician contact info
-    //return physician specialty
+router.get('/:urlpath', function (req, res) {
 
-    return physician.getAvailabilities()
-      .then(function(availabilities){
-        return res.json({"availabilities" : availabilities});
-      });
+ Physician.findOne({
+   where: {
+    url_path: req.params.urlpath
+   }
+  })
+  .then(function (physician) {
+
+   //return availabilities
+   //return physician address
+   //return physician contact info
+   //return physician specialty
+
+   return physician.getAvailabilities()
+    .then(function (availabilities) {
+     return res.render("physician-profile", {
+      "title": physician.first_name + " " + physician.last_name,
+      "availabilities": availabilities,
+      "physician": physician
+     });
+    });
   });
 });
 
 //add new physician profile
-router.post('/create', tokenAuth, function(req, res, next) {
-  // first_name: 
-  // last_name: 
-  // address1: 
-  // address2: 
-  // city: 
-  // state: 
-  // zip: 
-  // phone_number: 
-  // specialty: 
-  // url_path: 
+router.post('/create', tokenAuth, function (req, res, next) {
+ // first_name: 
+ // last_name: 
+ // address1: 
+ // address2: 
+ // city: 
+ // state: 
+ // zip: 
+ // phone_number: 
+ // specialty: 
+ // url_path: 
 });
 
 //
-router.put('/update', tokenAuth, function(req, res, next) {
-  // first_name: 
-  // last_name: 
-  // address1: 
-  // address2: 
-  // city: 
-  // state: 
-  // zip: 
-  // phone_number: 
-  // specialty: 
-  // url_path: 
+router.put('/update', tokenAuth, function (req, res, next) {
+ // first_name: 
+ // last_name: 
+ // address1: 
+ // address2: 
+ // city: 
+ // state: 
+ // zip: 
+ // phone_number: 
+ // specialty: 
+ // url_path: 
 });
 
 module.exports = router;

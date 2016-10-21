@@ -1,0 +1,18 @@
+<div class="container">
+ <div class="row">
+  <div class="col-md-12">
+   <h1>{{title}}</h1>
+   <ul>
+    <li>Dr. {{this.physician.first_name}} {{this.physician.last_name}}
+     <br>{{this.physician.specialty}}
+    </li>
+   </ul>
+   <ul>
+    {{#each availabilities}} {{#unless this.reserved}}
+    <li>Begin: {{this.start}} End: {{this.end}}</li>
+    {{/unless}} {{/each}}
+   </ul>
+
+  </div>
+ </div>
+</div>
