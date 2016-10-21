@@ -10,6 +10,7 @@ router.get('/', function (req, res) {
   .then(function (physicians) {
    return res.render("physicians", {
     "title": "View All Physicians",
+    "path" : "/physicians",
     "physicians": physicians
    });
   });
@@ -34,11 +35,17 @@ router.get('/:urlpath', function (req, res) {
     .then(function (availabilities) {
      return res.render("physician-profile", {
       "title": physician.first_name + " " + physician.last_name,
+      "path" : "/physicians/:urlpath",
       "availabilities": availabilities,
       "physician": physician
      });
     });
   });
+});
+
+router.get('/register', function(req, res){
+  //renders the signup form handlebars view
+  //clicking the submit button posts form data to `/physicians/create`
 });
 
 //add new physician profile
