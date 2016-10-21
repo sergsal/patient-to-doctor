@@ -26,6 +26,10 @@ module.exports = {
    updatedAt: {
     allowNull: false,
     type: Sequelize.DATE
+   },
+   PhysicianId: {
+    allowNull: false,
+    type: Sequelize.INTEGER
    }
   });
  },
