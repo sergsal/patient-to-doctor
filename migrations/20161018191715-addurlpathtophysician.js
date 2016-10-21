@@ -1,8 +1,10 @@
 'use strict';
 
+var sequelize = require('../models').sequelize;
+
 module.exports = {
   up: function (queryInterface, Sequelize) {
-    queryInterface.addColumn(
+    return queryInterface.addColumn(
       {
         tableName: 'Physicians',
       },
@@ -16,12 +18,7 @@ module.exports = {
   },
 
   down: function (queryInterface, Sequelize) {
-    queryInterface.removeColumn(
-      {
-        tableName: 'Physicians',
-      },
-      'url_path'
-    );
-
+    sequelize.query('ALTER TABLE `Physicians` DROP INDEX `url_path`');
+    return queryInterface.removeColumn('Physicians', 'url_path');
   }
 };

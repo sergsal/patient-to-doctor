@@ -3,7 +3,7 @@ var Physician = require('../models')['Physician'];
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
-    Physician.findAll({
+    return Physician.findAll({
         //select clause
         attributes: ['id', 'last_name'],
         //where clause
@@ -19,7 +19,7 @@ module.exports = {
         Physician.update(
           //set clause
           {
-            url_path: physician.last_name + physician.id
+            url_path: physician.last_name.toLowerCase() + physician.id
           },
           //where clause
           {
@@ -34,7 +34,7 @@ module.exports = {
   },
 
   down: function (queryInterface, Sequelize) {
-    Physician.update(
+    return Physician.update(
       //set clause
       {
         url_path: null

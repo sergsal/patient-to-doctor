@@ -26,7 +26,7 @@ app.set('view engine', 'handlebars');
 // Prepare Tables
 var models  = require('./models');
 var sequelizeConnection = models.sequelize;
-sequelizeConnection.sync(); // {force:true} drops the table everytime the server starts.
+sequelizeConnection.sync(); // {force:true} drops table data on server start.
 
 // Routing Setup
 var public_routes = require('./controllers/public_controller.js');

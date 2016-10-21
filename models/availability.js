@@ -17,8 +17,7 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: {
        allowNull: false
       }
-     })
-     // associations can be defined here
+    });
    }
   }
  });
