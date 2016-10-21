@@ -8,7 +8,7 @@ var Availability = require('../models/')["Availability"];
 router.get('/', function(req, res) {
   Physician.findAll({})
   .then(function(physicians) {
-    return res.json({"physicians" : physicians});
+    return res.render("physicians", {"physicians" : physicians});
   });
 });
 
