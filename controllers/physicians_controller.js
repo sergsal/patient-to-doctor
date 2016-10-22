@@ -6,13 +6,25 @@ var Availability = require('../models/')["Availability"];
 
 //list of physicians
 router.get('/', function (req, res) {
- Physician.findAll({})
-  .then(function (physicians) {
-   return res.render("physicians", {
-    "title": "View All Physicians",
-    "path" : "/physicians",
-    "physicians": physicians
-   });
+
+  //Builds the where clause with any search params
+  var whereClause = {};
+  if(req.query.city) {
+    console.log("req.query.city " + req.query.city);
+    whereClause.city = req.query.city.trim();
+  }
+  if(req.query.specialty) {
+    whereClause.specialty = req.query.specialty.toLowerCase().trim();
+  }
+
+  //Retrieves results
+  Physician.findAll({where: whereClause})
+    .then(function (physicians) {
+      return res.render("physician-search", {
+      "title": "View All Physicians",
+      "path" : "/physician",
+      "physicians": physicians
+    });
   });
 });
 

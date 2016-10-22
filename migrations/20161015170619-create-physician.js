@@ -51,6 +51,10 @@ module.exports = {
     allowNull: false,
     type: Sequelize.DATE
    },
+   prof_pic: {
+    type: Sequelize.STRING,
+    allowNull: true
+   },
    updatedAt: {
     allowNull: false,
     type: Sequelize.DATE
@@ -67,6 +71,7 @@ module.exports = {
       zip: "12345",
       phone_number: "1234567890",
       specialty: "Cardiology",
+      prof_pic: "howser.jpg"
      },
      {
       first_name: "John",
@@ -77,6 +82,7 @@ module.exports = {
       zip: "23456",
       phone_number: "987654321",
       specialty: "General",
+      prof_pic: "JD.jpg"
      }
    ])
   });
