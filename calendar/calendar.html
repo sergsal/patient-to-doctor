@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <title>Welcome to Kendo UI!</title>
+            <!-- Common Kendo UI CSS for web widgets and widgets for data visualization. -->
+            <link href="styles/kendo.common.min.css" rel="stylesheet" />
+
+            <!-- (Optional) RTL CSS for Kendo UI widgets for the web. Include only in right-to-left applications. -->
+            
+            <!-- <link href="styles/kendo.rtl.min.css" rel="stylesheet" type="text/css" /> -->
+
+            <!-- Default Kendo UI theme CSS for web widgets and widgets for data visualization. -->
+            <link href="styles/kendo.default.min.css" rel="stylesheet" />
+
+            <!-- (Optional) Kendo UI Hybrid CSS. Include only if you will use the mobile devices features. -->
+            <link href="styles/kendo.default.mobile.min.css" rel="stylesheet" type="text/css" />
+
+            <!-- jQuery JavaScript -->
+            <script src="js/jquery.min.js"></script>
+
+            <!-- Kendo UI combined JavaScript -->
+            <script src="js/kendo.all.min.js"></script>
+
+            <script src="calendartest.js"></script>
+
+        </head>
+        <body>
+            Hello World!
+
+
+ <div id="dialog">
+     <style>
+    .k-scheduler-header-wrap div.k-event,
+    .k-scheduler-content div.k-event {
+        background-color: blue;
+    }
+
+    .movie-template
+    {
+        background-color: #18bc9c;
+        height: 100%;
+    }
+
+    .movie-template p
+    {
+        margin: 0;
+    }
+</style>
+<div id="example">
+  <div id="scheduler"></div>
+</div>
+
+<script id="event-template" type="text/x-kendo-template">
+    <div class="movie-template">
+      <p>
+          #: kendo.toString(start, "hh:mm") # - #: kendo.toString(end, "hh:mm") #
+      </p>
+      <h3>#: title #</h3>
+      <p>#: description #</p>
+      </div>
+</script>
+<script>
+      $(function() {
+        $("#scheduler").kendoScheduler({
+          date: new Date("2016/11/01"),
+          startTime: new Date("2016/11/1 07:00 AM"),
+          height: 600,
+          views: [
+            "day",
+            { type: "month", selected: true },
+            "week",
+            "month",
+            "agenda"
+          ],
+          eventTemplate: $("#event-template").html(),
+          timezone: "Etc/UTC",
+          dataSource: {
+            batch: true,
+            transport: {
+              read: {
+                url: "http://demos.telerik.com/kendo-ui/service/tasks",
+                dataType: "jsonp"
+              },
+              update: {
+                url: "http://demos.telerik.com/kendo-ui/service/tasks/update",
+                dataType: "jsonp"
+              },
+              create: {
+                url: "http://demos.telerik.com/kendo-ui/service/tasks/create",
+                dataType: "jsonp"
+              },
+              destroy: {
+                url: "http://demos.telerik.com/kendo-ui/service/tasks/destroy",
+                dataType: "jsonp"
+              },
+              parameterMap: function(options, operation) {
+                if (operation !== "read" && options.models) {
+                  return {models: kendo.stringify(options.models)};
+                }
+              }
+            },
+            schema: {
+              model: {
+                id: "taskId",
+                fields: {
+                  taskId: { from: "TaskID", type: "number" },
+                  title: { from: "Title", defaultValue: "No title", validation: { required: true } },
+                  start: { type: "date", from: "Start" },
+                  end: { type: "date", from: "End" },
+                  startTimezone: { from: "StartTimezone" },
+                  endTimezone: { from: "EndTimezone" },
+                  description: { from: "Description" },
+                  recurrenceId: { from: "RecurrenceID" },
+                  recurrenceRule: { from: "RecurrenceRule" },
+                  recurrenceException: { from: "RecurrenceException" },
+                  ownerId: { from: "OwnerID", defaultValue: 1 },
+                  isAllDay: { type: "boolean", from: "IsAllDay" }
+                }
+              }
+            },
+            filter: {
+              logic: "or",
+              filters: [
+                { field: "ownerId", operator: "eq", value: 1 },
+                { field: "ownerId", operator: "eq", value: 2 }
+              ]
+            }
+          }
+        });
+      });
+</script>
+ </div>
+<script>
+$("#dialog").kendoWindow();
+var dialog = $("#dialog").data("kendoWindow");
+dialog.setOptions({
+  width: 750,
+  height: 700
+});
+</script>
+
+
+</body>
+</html>
