@@ -5,7 +5,11 @@
 
    Dr. {{this.physician.first_name}} {{this.physician.last_name}}
    {{this.physician.specialty}}
-   {{this.physician.prof_pic}}
+    {{#if this.physician.prof_pic}}
+            <img class="profile-pic" src="/profiles/physician/{{this.physician.prof_pic}}">
+            {{else}}
+            <img class="not-found" src="">
+            {{/if}}
 
    <ul>
     {{#each availabilities}} {{#unless this.reserved}}
