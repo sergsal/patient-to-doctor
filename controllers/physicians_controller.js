@@ -28,34 +28,35 @@ router.get('/', function (req, res) {
   });
 });
 
-//physician profile page
-router.get('/:urlpath', function (req, res) {
-
- Physician.findOne({
-   where: {
-    url_path: req.params.urlpath
-   }
-  })
-  .then(function (physician) {
-
-   //return availabilities
-   //return physician address
-   //return physician contact info
-   //return physician specialty
-
-   return physician.getAvailabilities()
-    .then(function (availabilities) {
-     return res.render("physician-profile", {
-      "title": physician.first_name + " " + physician.last_name,
-      "path" : "/physicians/:urlpath",
-      "availabilities": availabilities,
-      "physician": physician
-     });
-    });
-  });
-});
+////physician profile page
+//router.get('/:urlpath', function (req, res) {
+//
+// Physician.findOne({
+//   where: {
+//    url_path: req.params.urlpath
+//   }
+//  })
+//  .then(function (physician) {
+//
+//   //return availabilities
+//   //return physician address
+//   //return physician contact info
+//   //return physician specialty
+//
+//   return physician.getAvailabilities()
+//    .then(function (availabilities) {
+//     return res.render("physician-profile", {
+//      "title": physician.first_name + " " + physician.last_name,
+//      "path" : "/physicians/:urlpath",
+//      "availabilities": availabilities,
+//      "physician": physician
+//     });
+//    });
+//  });
+//});
 
 router.get('/register', function(req, res){
+ res.render("physician-register")
   //renders the signup form handlebars view
   //clicking the submit button posts form data to `/physicians/create`
 });
