@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var helpers = require('./lib/helpers.js');
 
 // Initialize Express
 var app = express();
@@ -19,7 +20,8 @@ app.use(methodOverride('_method'));
 // Engine Setup
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
-	defaultLayout: 'main'
+	defaultLayout: 'main',
+	helpers: helpers
 }));
 app.set('view engine', 'handlebars');
 
