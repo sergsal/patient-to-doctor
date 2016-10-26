@@ -12,8 +12,10 @@ app.use(express.static(process.cwd() + '/public'));
 
 // Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
-	extended: false
+	extended: true
 }));
+app.use(bodyParser.json());
+
 // Override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
 
