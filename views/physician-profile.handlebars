@@ -1,22 +1,35 @@
 <div class="container">
  <div class="row">
   <div class="col-md-12">
-   <h1>{{title}}</h1>
-
-   Dr. {{this.physician.first_name}} {{this.physician.last_name}}
-   {{this.physician.specialty}}
-    {{#if this.physician.prof_pic}}
+   {{#if this.physician.prof_pic}}
             <img class="profile-pic" src="/profiles/physician/{{this.physician.prof_pic}}">
             {{else}}
             <img class="not-found" src="">
             {{/if}}
-
+   <h1>{{title}}</h1>
+   
+   Dr. {{this.physician.first_name}} {{this.physician.last_name}} <br>
+   Specialty: {{this.physician.specialty}}
+    
+   <h4>Availabilites</h4>
    <ul>
     {{#each availabilities}} {{#unless this.reserved}}
     <li>Begin: {{this.start}} End: {{this.end}}</li>
     {{/unless}} {{/each}}
    </ul>
+<div class="row">
+  <div class="col-xs-12 enter_section">
+   <h4>Add Availabilities</h4>
+   <form action="/physicians/update?_method=PUT" method="POST">
+   <input input type="hidden" type="text" name="physician_id" value={{this.physician.id}}>
 
+    <input type="text" class="form-control" name="start" value="" id="enter_text" placeholder="Start Time"><br>
+     <input type="text" class="form-control" name="end" value="" id="enter_text" placeholder="End Time"><br>
+    <button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
+   </form>
+   <p>Enter a start and end time for your availability, then Click the "Submit" button.</p>
+  </div>
+ </div>
   </div>
  </div>
 </div>

@@ -1,5 +1,6 @@
 .picture {
 	background-image: url("../img/stethoscope.jpg");
+ background-repeat: no-repeat;
 	height: 600px;
 	width: 100%;
 	text-align: center;
