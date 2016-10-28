@@ -14,7 +14,8 @@
    <h4>Availabilites</h4>
    <ul>
     {{#each availabilities}} {{#unless this.reserved}}
-    <li>Begin: {{this.start}} End: {{this.end}}</li>
+	   <li>Begin: <span class="availability-time">{{this.start}}</span></li> 
+	   <li>End: <span class="availability-time">{{this.end}}</span></li>
     {{/unless}} {{/each}}
    </ul>
 <div class="row">
