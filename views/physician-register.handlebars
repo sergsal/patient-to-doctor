@@ -1,57 +1,62 @@
-<div>
- <h1>Please Sign Up to Begin</h1>
+<div class="container">
+  <h1>Please Sign Up to Begin</h1>
+  <form 
+    id="physicianProfile"
+    action="/physicians/create"
+    method="post"
+    enctype="multipart/form-data"
+    onsubmit="return physician_register_validate();">
+  
+      <div class="redirect has-error">
+      </div>  
+    <div class="form-group">
+      <label class="control-label" for="inputFirstName">First Name</label>
+      <input name="dr_first_name" type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="inputLastName">Last Name</label>
+      <input name="dr_last_name" type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="inputAddress1">Address</label>
+      <input name="dr_address1" type="text" class="form-control" id="inputAddress1" placeholder="Address Line 1">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="inputAddress2">Address Line 2</label>
+      <input name="dr_address2" type="text" class="form-control" id="inputAddress2" placeholder="Address Line 2">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="inputCity">City</label>
+      <input name="dr_city" type="text" class="form-control" id="inputCity" placeholder="City">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="inputState">State</label>
+      <input name="dr_state" type="text" class="form-control" id="inputState" placeholder="State">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="inputZipCode">Zip Code</label>
+      <input name="dr_zip" type="text" class="form-control" id="inputZipCode" placeholder="Zip Code">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="inputPhone">Phone Number</label>
+      <input name="dr_phone" type="text" class="form-control" id="inputPhone" placeholder="Phone Number">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="inputSpecialty">Specialty</label>
+      <input name="dr_specialty" type="text" class="form-control" id="inputSpecialty" placeholder="Specialty">
+    </div>
+    {{!-- <div class="form-group">
+      <label class="control-label" for="inputUsername">Username</label>
+      <input type="text" class="form-control" id="insertUsername" placeholder="Username">
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="inputPassword">Password</label>
+      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+    </div> --}}
+    <div class="form-group">
+    	<label class="control-label" for="prof_pic">Image</label>
+    	<input name="dr_prof_pic" type="file" class="form-control">
+    </div>
 
-
-<form id="physicianProfile" action="/physicians/create" method="post" enctype="multipart/form-data">
-{{!--   <div class="form-group">
-    <label for="inputFirstName">First Name</label>
-    <input type="text" class="form-control" id="inputFirstName" placeholder="First Name">
-  </div>
-  <div class="form-group">
-    <label for="inputLastName">Last Name</label>
-    <input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress1">Address</label>
-    <input type="text" class="form-control" id="inputAddress1" placeholder="Address">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address Line 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Address Line 2">
-  </div>
-  <div class="form-group">
-    <label for="inputCity">City</label>
-    <input type="text" class="form-control" id="inputCity" placeholder="City">
-  </div>
-  <div class="form-group">
-    <label for="inputState">State</label>
-    <input type="text" class="form-control" id="inputState" placeholder="State">
-  </div>
-  <div class="form-group">
-    <label for="inputZipCode">Zip Code</label>
-    <input type="text" class="form-control" id="inputZipCode" placeholder="Zip Code">
-  </div>
-  <div class="form-group">
-    <label for="inputPhone">Phone Number</label>
-    <input type="text" class="form-control" id="inputPhone" placeholder="Phone Number">
-  </div> --}}
-  <div class="form-group">
-    <label for="inputSpecialty">Specialty</label>
-    <input name="specialty" type="text" class="form-control" id="inputSpecialty" placeholder="Specialty">
-  </div>
-  {{!-- <div class="form-group">
-    <label for="inputUsername">Username</label>
-    <input type="text" class="form-control" id="insertUsername" placeholder="Username">
-  </div>
-  <div class="form-group">
-    <label for="inputPassword">Password</label>
-    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-  </div> --}}
-  <div class="form-group">
-  	<label for="prof_pic">Image</label>
-  	<input type="file" class="form-control" name="prof_pic">
-  </div>
-
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
-</div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
