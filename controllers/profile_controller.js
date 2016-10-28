@@ -14,7 +14,7 @@ router.get('/:urlpath', function (req, res) {
 		})
 		.then(function (physician) {
 
-			//return availabilities
+			//return res.redirect('/dr/'+req.params.urlpath);urn availabilities
 			//return physician address
 			//return physician contact info
 			//return physician specialty
@@ -38,9 +38,39 @@ router.post('/:urlpath/availcreate', function (req, res) {
 			end: req.body.end,
 			PhysicianId: req.body.physician_id
 		})
-		.then(function (){
-		return res.redirect('/dr/'+req.params.urlpath);
-	})
+		.then(function () {
+			return res.redirect('/dr/' + req.params.urlpath);
+		})
 });
+
+router.post('/:urlpath/availdelete', function (req, res) {
+Availability.destroy({
+		where: {
+			id: req.body.id
+		}
+	})
+//	.then(function (theAvailability) {
+//		return theAvailability.updateAttributes({
+//			reserved: true})
+	.then(function () {
+			return res.redirect('/dr/' + req.params.urlpath)
+		})
+	})
+//})
+
+router.put('/:urlpath/availreserve', function (req, res) {
+Availability.findOne({
+		where: {
+			id: req.body.id
+		}
+	})
+	.then(function (theAvailability) {
+		return theAvailability.updateAttributes({
+			reserved: true})
+	.then(function () {
+			return res.redirect('/dr/' + req.params.urlpath)
+		})
+	})
+})
 
 module.exports = router;
