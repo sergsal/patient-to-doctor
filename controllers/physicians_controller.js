@@ -81,17 +81,10 @@ router.post(
 );
 
 //
-router.put('/update', tokenAuth, function (req, res, next) {
- // first_name: 
- // last_name: 
- // address1: 
- // address2: 
- // city: 
- // state: 
- // zip: 
- // phone_number: 
- // specialty: 
- // url_path: 
-});
+//router.put('/availupdate', tokenAuth, function (req, res, next) {
+//
+//console.log(req.body.start +""+req.body.end);
+//res.redirect('/')
+//});
 
 module.exports = router;

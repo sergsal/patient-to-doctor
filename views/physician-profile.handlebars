@@ -1,36 +1,42 @@
 <div class="container">
- <div class="row">
-  <div class="col-md-12">
-   {{#if this.physician.prof_pic}}
-            <img class="profile-pic" src="/profiles/physician/{{this.physician.prof_pic}}">
-            {{else}}
-            <img class="not-found" src="">
-            {{/if}}
-   <h1>{{title}}</h1>
-   
-   Dr. {{this.physician.first_name}} {{this.physician.last_name}} <br>
-   Specialty: {{this.physician.specialty}}
-    
-   <h4>Availabilites</h4>
-   <ul>
-    {{#each availabilities}} {{#unless this.reserved}}
-    <li >Begin: <span class="availability-time">{{this.start}}</span></li>
-    <li >End: <span class="availability-time">{{this.end}}</span></li><br>
-    {{/unless}} {{/each}}
-   </ul>
-<div class="row">
-  <div class="col-xs-12 enter_section">
-   <h4>Add Availabilities</h4>
-   <form action="/physicians/update?_method=PUT" method="POST">
-   <input input type="hidden" type="text" name="physician_id" value={{this.physician.id}}>
-
-    <input type="text" class="form-control" name="start" value="" id="enter_text" placeholder="Start Time"><br>
-     <input type="text" class="form-control" name="end" value="" id="enter_text" placeholder="End Time"><br>
-    <button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
-   </form>
-   <p>Enter a start and end time for your availability, then Click the "Submit" button.</p>
-  </div>
- </div>
-  </div>
- </div>
+	<div class="row">
+		<div class="col-lg-2"> {{#if this.physician.prof_pic}} <img class="profile-pic" src="/profiles/physician/{{this.physician.prof_pic}}"> {{else}} <img class="not-found" src=""> {{/if}}</div>
+		<div class="col-lg-10">
+			<h1>{{title}}</h1>
+			<p> Dr. {{this.physician.first_name}} {{this.physician.last_name}}
+				<br> Specialty: {{this.physician.specialty}} </p>
+			<h3>Contact</h3>
+			<p>
+				{{this.physician.address1}}
+				<br> {{#if this.physician.address2}} {{this.physician.address2}}
+				<br> {{else}}{{/if}} {{this.physician.city}}, {{this.physician.state}} {{this.physician.zip}}
+				<br> Phone: {{this.physician.phone_number}}
+			</p>
+			<h3>Availabilites</h3>
+			<ul> {{#each availabilities}} {{#unless this.reserved}}
+				<li>
+					<form method="POST" action="{{../this.physician.url_path}}/availdelete?_method=POST" >
+						<input type="hidden" type="text" name="id" value={{this.id}}>
+						<b>Begin: </b> <span class="availability-time">{{this.start}}</span> <b>End: </b> <span class="availability-time">{{this.end}}</span>
+						<button type="submit" class="btn btn-link btn-sm" id="text-enter-button">Delete</button> <button type="submit" class="btn btn-link btn-sm" id="text-enter-button" formaction="{{../this.physician.url_path}}/availreserve?_method=PUT">Reserve</button>
+					</form>
+				</li>
+				{{/unless}} {{/each}}
+			</ul>
+			<div class="row">
+				<div class="col-xs-12 enter_section">
+					<h3>Add Availabilities</h3>
+					<form action="{{this.physician.url_path}}/availcreate" method="POST">
+						<input type="hidden" type="text" name="physician_id" value={{this.physician.id}}> Start:&emsp;
+						<input id="start" type="text" class="form-control" name="start" value="" id="enter_text" placeholder="Start Time">&emsp; End:&emsp;
+						<input id="end" type="text" class="form-control" name="end" value="" id="enter_text" placeholder="End Time"> &emsp;
+						<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
+					</form>
+					<br>
+					<p>Enter a start and end time for your availability, then Click the "Submit" button.</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
