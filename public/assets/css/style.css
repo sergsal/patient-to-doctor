@@ -1,5 +1,6 @@
 .picture {
 	background-image: url("../img/stethoscope.jpg");
+ background-repeat: no-repeat;
 	height: 600px;
 	width: 100%;
 	text-align: center;
@@ -48,7 +49,26 @@ img {
 	padding: 10px;
 	border-top: 2px solid #18bc9c;
 
-} 
+}
+
+.aboutText {
+ font-size: 16px;
+ font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;;
+}
+
+.profile-pic {
+ width: auto;
+ float: left;
+}
+
+.form-control {
+ width:50%;
+}
+
+.availForm {
+   width: 100px;
+   margin: 0 auto
+}
 
 /*font-family: 'Pacifico', cursive;
 font-family: 'Orbitron', sans-serif;

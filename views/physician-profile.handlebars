@@ -1,22 +1,37 @@
 <div class="container">
- <div class="row">
-  <div class="col-md-12">
-   <h1>{{title}}</h1>
-
-   Dr. {{this.physician.first_name}} {{this.physician.last_name}}
-   {{this.physician.specialty}}
-    {{#if this.physician.prof_pic}}
-            <img class="profile-pic" src="/profiles/physician/{{this.physician.prof_pic}}">
-            {{else}}
-            <img class="not-found" src="">
-            {{/if}}
-
-   <ul>
-    {{#each availabilities}} {{#unless this.reserved}}
-    <li>Begin: {{this.start}} End: {{this.end}}</li>
-    {{/unless}} {{/each}}
-   </ul>
-
-  </div>
- </div>
+	<div class="row">
+		<div class="col-md-12"> {{#if this.physician.prof_pic}} <img class="profile-pic" src="/profiles/physician/{{this.physician.prof_pic}}"> {{else}} <img class="not-found" src=""> {{/if}}
+			<h1>{{title}}</h1>
+			<p> Dr. {{this.physician.first_name}} {{this.physician.last_name}}
+				<br> Specialty: {{this.physician.specialty}} </p>
+			<h4>Contact</h4>
+			<p>
+				{{this.physician.address1}} <br>
+				{{#if this.physician.address2}}
+				{{this.physician.address2}} <br> {{else}}{{/if}}
+				{{this.physician.city}},
+				{{this.physician.state}}
+				{{this.physician.zip}}<br>
+				Phone: {{this.physician.phone_number}}
+			</p>
+			<h4>Availabilites</h4>
+			<ul> {{#each availabilities}} {{#unless this.reserved}}
+				<li><b>Begin: </b> <span class="availability-time">{{this.start}}</span> <b>End: </b> <span class="availability-time">{{this.end}}</span></li>
+				{{/unless}} {{/each}}
+			</ul>
+			<div class="row">
+				<div class="col-xs-12 enter_section">
+					<h4>Add Availabilities</h4>
+					<form action="{{this.physician.url_path}}/availcreate" method="POST">
+						<input type="hidden" type="text" name="physician_id" value={{this.physician.id}}> Start:&emsp;
+						<input class="datetimepicker" type="text" class="form-control" name="start" value="" id="enter_text" placeholder="Start Time">&emsp; End:&emsp;
+						<input class="datetimepicker" type="text" class="form-control" name="end" value="" id="enter_text" placeholder="End Time"> &emsp;
+						<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
+					</form>
+					<br>
+					<p>Enter a start and end time for your availability, then Click the "Submit" button.</p>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
