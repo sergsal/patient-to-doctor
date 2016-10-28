@@ -9,4 +9,8 @@ router.get('/login', function (req, res) {
 
 });
 
+router.get("/patients", function(req, res){
+	res.render("patient", {path:"/patients"});
+});
+
 module.exports = router;
