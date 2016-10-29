@@ -26,7 +26,7 @@
 			<div class="row">
 				<div class="col-xs-12 enter_section">
 					<h3>Add Availabilities</h3>
-					<form action="{{this.physician.url_path}}/availcreate" method="POST">
+					<form action="{{this.physician.url_path}}/availcreate" method="POST" onsubmit="return availcreate_validate();">
 						<input type="hidden" type="text" name="physician_id" value={{this.physician.id}}> Start:&emsp;
 						<input id="start" type="text" class="avail-form" name="start" value="" id="enter_text" placeholder="Start Time">&emsp; End:&emsp;
 						<input id="end" type="text" class="avail-form" name="end" value="" id="enter_text" placeholder="End Time"> &emsp;

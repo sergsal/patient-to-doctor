@@ -58,3 +58,10 @@ $(document).ready(function () {
 	start.max(end.value());
 	end.min(start.value());
 });
+
+function availcreate_validate() {
+	if(!($('#start').val()) || !($('#end').val())) {
+		return false;
+	}
+	return true;
+}
