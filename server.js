@@ -35,7 +35,6 @@ sequelizeConnection.sync(); // {force:true} drops table data on server start.
 // Routing Setup
 var public_routes = require('./controllers/public_controller.js');
 var physicians_routes = require('./controllers/physicians_controller.js');
-var search_routes = require('./controllers/search_controller.js');
 var profile_routes = require('./controllers/profile_controller.js');
 
 // TODO: routes for authenticating physician users
@@ -46,7 +45,6 @@ var profile_routes = require('./controllers/profile_controller.js');
 app.use('/', public_routes);
 app.use('/dr', profile_routes);
 app.use('/physicians', physicians_routes);
-app.use('/search', search_routes);
 
 // Listening
 app.listen(process.env.PORT || 3000, function(){
