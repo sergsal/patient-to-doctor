@@ -57,7 +57,9 @@ router.get('/', function (req, res) {
  * Clicking the submit button posts form data to `/physicians/create`
  */
 router.get('/register', function(req, res){
-  res.render("physician-register");
+  res.render("physician-register", {
+	  title: "For Physicians"
+  });
 });
 
 

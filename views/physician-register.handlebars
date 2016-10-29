@@ -1,80 +1,73 @@
 <div class="container">
-<p style="text-align: justify; padding: 30px;"> 
+	<h1>{{title}}</h1>
+	<p style="text-align: justify; padding: 30px;">
 
-At Accessible Care, physicians like you are our driving force.  Because our volunteer physicians care about the health of their community, they are providing necessary healthcare to those who would not be able to receive it otherwise.
+		At Accessible Care, physicians like you are our driving force. Because our volunteer physicians care about the health of their community, they are providing necessary healthcare to those who would not be able to receive it otherwise.
 
-<br>
-<br>
+		<br>
+		<br> We are working towards creating a medical supply resource pool, which is being funded by donations to our organization. Soon all physicians will have access to this resource pool, which will help to decrease the burden on your practice when you are seeing patients from Accessible Care.
 
-We are working towards creating a medical supply resource pool, which is being funded by donations to our organization.  Soon all physicians will have access to this resource pool, which will help to decrease the burden on your practice when you are seeing patients from Accessible Care.
+		<br>
+		<br> As a non-profit organization, we can provide you with the necessary documentation so you can claim the value of the services you provide as a charitable donation. Contact one of our case managers, and we can establish fee schedules that accurately reflect what your usual charges are for the services you provide. We can then give you reports either quarterly, semiannually or annually, depending on what you prefer, which you can use when preparing your tax returns.
 
-<br>
-<br>
+		<br>
+		<br>
 
-As a non-profit organization, we can provide you with the necessary documentation so you can claim the value of the services you provide as a charitable donation.  Contact one of our case managers, and we can establish fee schedules that accurately reflect what your usual charges are for the services you provide.  We can then give you reports either quarterly, semiannually or annually, depending on what you prefer, which you can use when preparing your tax returns.  
+	</p>
+	<h1>Please Sign Up to Begin</h1>
+	<form id="physicianProfile" action="/physicians/create" method="post" enctype="multipart/form-data" onsubmit="return physician_register_validate();">
 
-<br>
-<br>
+		<div class="redirect has-error">
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="inputFirstName">First Name</label>
+			<input name="dr_first_name" type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="inputLastName">Last Name</label>
+			<input name="dr_last_name" type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="inputAddress1">Address</label>
+			<input name="dr_address1" type="text" class="form-control" id="inputAddress1" placeholder="Address Line 1">
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="inputAddress2">Address Line 2</label>
+			<input name="dr_address2" type="text" class="form-control" id="inputAddress2" placeholder="Address Line 2">
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="inputCity">City</label>
+			<input name="dr_city" type="text" class="form-control" id="inputCity" placeholder="City">
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="inputState">State</label>
+			<input name="dr_state" type="text" class="form-control" id="inputState" placeholder="State">
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="inputZipCode">Zip Code</label>
+			<input name="dr_zip" type="text" class="form-control" id="inputZipCode" placeholder="Zip Code">
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="inputPhone">Phone Number</label>
+			<input name="dr_phone" type="text" class="form-control" id="inputPhone" placeholder="Phone Number">
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="inputSpecialty">Specialty</label>
+			<input name="dr_specialty" type="text" class="form-control" id="inputSpecialty" placeholder="Specialty">
+		</div>
+		{{!--
+		<div class="form-group">
+			<label class="control-label" for="inputUsername">Username</label>
+			<input type="text" class="form-control" id="insertUsername" placeholder="Username">
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="inputPassword">Password</label>
+			<input type="password" class="form-control" id="inputPassword" placeholder="Password">
+		</div> --}}
+		<div class="form-group">
+			<label class="control-label" for="prof_pic">Image</label>
+			<input name="dr_prof_pic" type="file" class="form-control">
+		</div>
 
-</p>
-  <h1>Please Sign Up to Begin</h1>
-  <form 
-    id="physicianProfile"
-    action="/physicians/create"
-    method="post"
-    enctype="multipart/form-data"
-    onsubmit="return physician_register_validate();">
-  
-      <div class="redirect has-error">
-      </div>  
-    <div class="form-group">
-      <label class="control-label" for="inputFirstName">First Name</label>
-      <input name="dr_first_name" type="text" class="form-control" id="inputFirstName" placeholder="First Name">
-    </div>
-    <div class="form-group">
-      <label class="control-label" for="inputLastName">Last Name</label>
-      <input name="dr_last_name" type="text" class="form-control" id="inputLastName" placeholder="Last Name">
-    </div>
-    <div class="form-group">
-      <label class="control-label" for="inputAddress1">Address</label>
-      <input name="dr_address1" type="text" class="form-control" id="inputAddress1" placeholder="Address Line 1">
-    </div>
-    <div class="form-group">
-      <label class="control-label" for="inputAddress2">Address Line 2</label>
-      <input name="dr_address2" type="text" class="form-control" id="inputAddress2" placeholder="Address Line 2">
-    </div>
-    <div class="form-group">
-      <label class="control-label" for="inputCity">City</label>
-      <input name="dr_city" type="text" class="form-control" id="inputCity" placeholder="City">
-    </div>
-    <div class="form-group">
-      <label class="control-label" for="inputState">State</label>
-      <input name="dr_state" type="text" class="form-control" id="inputState" placeholder="State">
-    </div>
-    <div class="form-group">
-      <label class="control-label" for="inputZipCode">Zip Code</label>
-      <input name="dr_zip" type="text" class="form-control" id="inputZipCode" placeholder="Zip Code">
-    </div>
-    <div class="form-group">
-      <label class="control-label" for="inputPhone">Phone Number</label>
-      <input name="dr_phone" type="text" class="form-control" id="inputPhone" placeholder="Phone Number">
-    </div>
-    <div class="form-group">
-      <label class="control-label" for="inputSpecialty">Specialty</label>
-      <input name="dr_specialty" type="text" class="form-control" id="inputSpecialty" placeholder="Specialty">
-    </div>
-    {{!-- <div class="form-group">
-      <label class="control-label" for="inputUsername">Username</label>
-      <input type="text" class="form-control" id="insertUsername" placeholder="Username">
-    </div>
-    <div class="form-group">
-      <label class="control-label" for="inputPassword">Password</label>
-      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-    </div> --}}
-    <div class="form-group">
-    	<label class="control-label" for="prof_pic">Image</label>
-    	<input name="dr_prof_pic" type="file" class="form-control">
-    </div>
-
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
+		<button type="submit" class="btn btn-default">Submit</button>
+	</form>
