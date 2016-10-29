@@ -1,23 +1,27 @@
 {{!-- meta tags for all pages --}}
-<title>{{ this.title }}</title>
-<meta property="og:title" content="{{ this.title }}">
+
+	<title>{{ this.title }}</title>
+	<meta property="og:title" content="{{ this.title }}">
 
 {{!-- conditional meta tags --}}
-{{#if_eq this.path "/home"}} 
-	<meta property="og:url" content="/physicians">
-	{{!-- <meta property="og:image" content="/logo.png"> --}}
-	<meta property="og:description" content="Accessible Health is ....">
+
+{{!-- Home --}}
+{{#if_eq this.path "/"}} 
+	<meta property="og:url" content="http://accessiblecare.herokuapp.com/">
+	<meta property="og:image" content="http://accessiblecare.herokuapp.com/assets/img/Stethoscope.jpg">
+	<meta property="og:description" content="At Accessible Care, we connect eligible patients with physicians that donate their time and services to meet the healthcare needs of those patients. Our network of volunteer physicians covers the entire central florida area and includes various specialties.">
 {{/if_eq}}
 
-{{!-- list all physicians --}}
+{{!-- Search physicians --}}
 {{#if_eq this.path "/physicians"}} 
-	<meta property="og:url" content="/physicians">
-	<meta property="og:image" content="/logo.png">
-	<meta property="og:description" content="View all physicians">
+	<meta property="og:url" content="http://accessiblecare.herokuapp.com/physicians">
+	<meta property="og:image" content="http://accessiblecare.herokuapp.com/assets/img/Stethoscope.jpg">
+	<meta property="og:description" content="View our network of physicians">
 {{/if_eq}}
 
-{{!-- list all physicians --}}
-{{#if_eq this.path "/physicians/:urlpath"}}
-	<meta property="og:image" content="{{ this.physician.profilepic }}">
-	<meta property="og:description" content="{{ this.physician.description }}">
+{{!-- Physician Profile --}}
+{{#if_eq this.path "/dr/:urlpath"}}
+	<meta property="og:url" content="http://accessiblecare.herokuapp.com/dr/{{this.physician.url_path}}"
+	<meta property="og:image" content="http://accessiblecare.herokuapp.com/profiles/physician/{{ this.physician.prof_pic }}">
+	<meta property="og:description" content="Dr. {{this.physician.first_name}} {{this.physician.last_name}}, Specialty: {{this.physician.specialty}}">
 {{/if_eq}}
