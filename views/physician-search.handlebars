@@ -2,33 +2,53 @@
  <div class="row">
   <div class="col-md-12">
    <h1>{{title}}</h1>
-   <ul>
-    {{#each physicians}}
-    <li>
-      <div class="physician-result">
-        <div class="img-wrapper">
-          <a href="/dr/{{this.url_path}}">
-            {{#if this.prof_pic}}
-            <img class="profile-pic" src="/profiles/physician/{{this.prof_pic}}">
-            {{else}}
-            <img class="not-found" src="">
-            {{/if}}
-          </a>
-        </div>
-        <div class="body">
-          <h3>
+    <form action="" method="GET">
+      <div class="form-group">
+        <label class="control-label" for="queryCity">City</label>
+        <input name="city" type="text" class="form-control" id="queryCity" placeholder="Springfield">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="querySpecialty">Specialty</label>
+        <input name="specialty" type="text" class="form-control" id="querySpecialty" placeholder="Pathology">
+      </div>
+      <button type="submit" class="btn btn-default">Search</button>
+    </form>    
+
+    <hr>
+
+    {{#if physicians}}
+     <ul>
+      {{#each physicians}}
+      <li>
+        <div class="physician-result">
+          <div class="img-wrapper">
             <a href="/dr/{{this.url_path}}">
-              {{this.id}}. Dr. {{this.first_name}} {{this.last_name}}
+              {{#if this.prof_pic}}
+              <img class="profile-pic" src="/profiles/physician/{{this.prof_pic}}">
+              {{else}}
+              <img class="not-found" src="">
+              {{/if}}
             </a>
-          </h3>
-          <div class="details">
-            {{this.specialty}}
+          </div>
+          <div class="body">
+            <h3>
+              <a href="/dr/{{this.url_path}}">
+                {{this.id}}. Dr. {{this.first_name}} {{this.last_name}}
+              </a>
+            </h3>
+            <div class="details">
+              {{this.specialty}}
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-    {{/each}}
-   </ul>
+      </li>
+      {{/each}}
+     </ul>
+    {{else}}
+      <p>
+        Sorry, no results found.
+      </p>
+    {{/if}}
   </div>
  </div>
 </div>
