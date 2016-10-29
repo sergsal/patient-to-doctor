@@ -2,7 +2,7 @@
   "development": {
     "username": "mpcs0783wa1uyggw",
     "password": "ln04xyrbdgpytiek" ,
-    "database": "accessible_care_db",
+    "database": "b300w3nfayb5k79d",
     "host": "vhw3t8e71xdz9k14.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
@@ -16,7 +16,7 @@
   "production": {
       "username": "mpcs0783wa1uyggw",
     "password": "ln04xyrbdgpytiek" ,
-    "database": "accessible_care_db",
+    "database": "b300w3nfayb5k79d",
     "host": "vhw3t8e71xdz9k14.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
