@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/sergsal/patient-to-doctor#readme",
   "devDependencies": {
-    "jasmine": "^2.5.2",
+    "jasmine": "^2.5.2"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
