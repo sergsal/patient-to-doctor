@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jasmine",
-    "start": "node server.js && sequelize db:migrate" 
+    "start": "node server.js" 
   },
   "repository": {
     "type": "git",
