@@ -28,8 +28,8 @@
 					<h3>Add Availabilities</h3>
 					<form action="{{this.physician.url_path}}/availcreate" method="POST">
 						<input type="hidden" type="text" name="physician_id" value={{this.physician.id}}> Start:&emsp;
-						<input id="start" type="text" class="form-control" name="start" value="" id="enter_text" placeholder="Start Time">&emsp; End:&emsp;
-						<input id="end" type="text" class="form-control" name="end" value="" id="enter_text" placeholder="End Time"> &emsp;
+						<input id="start" type="text" class="avail-form" name="start" value="" id="enter_text" placeholder="Start Time">&emsp; End:&emsp;
+						<input id="end" type="text" class="avail-form" name="end" value="" id="enter_text" placeholder="End Time"> &emsp;
 						<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
 					</form>
 					<br>

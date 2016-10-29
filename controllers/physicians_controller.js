@@ -58,6 +58,7 @@ router.get('/', function (req, res) {
  */
 router.get('/register', function(req, res){
   res.render("physician-register", {
+    title: "For Physicians",
     path : '/physicians/register'
   });
 });

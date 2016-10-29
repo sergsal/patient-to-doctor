@@ -50,7 +50,7 @@ $(document).ready(function () {
 	}).data("kendoDateTimePicker");
 
 	var end = $("#end").kendoDateTimePicker({
-		value: today,
+		value: null,
 		change: endChange,
 		parseFormats: ["MM/dd/yyyy"]
 	}).data("kendoDateTimePicker");

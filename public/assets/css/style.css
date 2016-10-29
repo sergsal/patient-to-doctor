@@ -1,5 +1,5 @@
 .picture {
-	background-image: url("../img/stethoscope.jpg");
+	background-image: url("../img/Stethoscope.jpg");
 	background-repeat: no-repeat;
 	height: 600px;
 	width: 100%;
@@ -26,9 +26,6 @@ img {
 	height: 250px;
 	padding: 15px;
 	margin: 20px;
-	border-style: solid;
-	border-color: #2c3e50;
-	border: 5px;
 	float: left;
 }
 
@@ -36,6 +33,15 @@ img {
 	width: 750px;
 	padding: 20px;
 	margin: 0 auto;
+}
+
+#aboutUs {
+	text-align: justify;
+	font-size: 18px;
+	margin: 20px;
+	padding: 10px;
+	border: 5px;
+	border-style: solid;
 }
 
 #footer {
@@ -57,10 +63,6 @@ img {
 .profile-pic {
 	width: auto;
 	float: left;
-}
-
-.form-control {
-	width: 30%;
 }
 
 .availForm {
