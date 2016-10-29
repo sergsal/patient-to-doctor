@@ -6,28 +6,29 @@
 {{!-- conditional meta tags --}}
 
 {{!-- Home --}}
-{{#if_eq this.path "/"}} 
+{{#if_eq this.path "/"}}
 	<meta property="og:url" content="http://accessiblecare.herokuapp.com/">
 	<meta property="og:image" content="http://accessiblecare.herokuapp.com/assets/img/Stethoscope.jpg">
 	<meta property="og:description" content="At Accessible Care, we connect eligible patients with physicians that donate their time and services to meet the healthcare needs of those patients. Our network of volunteer physicians covers the entire central florida area and includes various specialties.">
 {{/if_eq}}
 
 {{!-- Patient Splash --}}
-{{#if_eq this.path "/"}} 
+{{#if_eq this.path "/patients"}}
 	<meta property="og:url" content="http://accessiblecare.herokuapp.com/patients">
 	<meta property="og:image" content="http://accessiblecare.herokuapp.com/assets/img/Stethoscope.jpg">
 	<meta property="og:description" content="At Accessible Care, we connect eligible patients with physicians that donate their time and services to meet the healthcare needs of those patients. Our network of volunteer physicians covers the entire central florida area and includes various specialties.">
 {{/if_eq}}
 
 {{!-- Physician Splash --}}
-{{#if_eq this.path "/"}} 
+{{#if_eq this.path "/physicians/register"}}
 	<meta property="og:url" content="http://accessiblecare.herokuapp.com/physicians/register">
 	<meta property="og:image" content="http://accessiblecare.herokuapp.com/assets/img/Stethoscope.jpg">
 	<meta property="og:description" content="At Accessible Care, physicians like you are our driving force. Because our volunteer physicians care about the health of their community, they are providing necessary healthcare to those who would not be able to receive it otherwise.">
 {{/if_eq}}
 
+
 {{!-- Search physicians --}}
-{{#if_eq this.path "/physicians"}} 
+{{#if_eq this.path "/physicians"}}
 	<meta property="og:url" content="http://accessiblecare.herokuapp.com/physicians">
 	<meta property="og:image" content="http://accessiblecare.herokuapp.com/assets/img/Stethoscope.jpg">
 	<meta property="og:description" content="View our network of physicians">
