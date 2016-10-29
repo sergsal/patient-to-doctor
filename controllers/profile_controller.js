@@ -23,7 +23,7 @@ router.get('/:urlpath', function (req, res) {
 				.then(function (availabilities) {
 					return res.render("physician-profile", {
 						"title": physician.first_name + " " + physician.last_name,
-						"path": "/physicians/:urlpath",
+						"path": "/dr/:urlpath",
 						"availabilities": availabilities,
 						"physician": physician
 					});

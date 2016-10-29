@@ -45,7 +45,7 @@ router.get('/', function (req, res) {
     .then(function (physicians) {
       return res.render("physician-search", {
       "title": "View All Physicians",
-      "path" : "/physician",
+      "path" : "/physicians",
       "physicians": physicians
     });
   });
@@ -57,7 +57,9 @@ router.get('/', function (req, res) {
  * Clicking the submit button posts form data to `/physicians/create`
  */
 router.get('/register', function(req, res){
-  res.render("physician-register");
+  res.render("physician-register", {
+    path : '/physicians/register'
+  });
 });
 
 
